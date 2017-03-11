@@ -1,50 +1,84 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         #pyramid {
             line-height: 0;
             font-size: 30px;
         }
-
         body {
             font-family: "Courier New", monospace;
             text-align: center;
         }
-
-        .invalid-field {
-            border: 1px solid red;
+        #slider_value {
+            display: inline;
         }
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+}
 
-        .error-message {
-            color: red;
-        }
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
     </style>
 </head>
+
 <body>
-    <h1>Mario 4</h1>
 
-    <p>When you say</p>
-    <p><strong>Draw a pyramid</strong></p>
-    <p>I say:</p>
-    <br>
+  <div id="title_banner">
+      <h1>Pyramid Slide</h1>
+      <br>
+  </div>
 
-    <form id="draw-form">
-        <label>
-            How high?
-            <input type="range" id="height" min="1" max="100" oninput="drawPyramid()">
 
-            <!-- <input type="text" id="height"/> -->
-            <label class="error-message">
-                <!-- If there was a user error, we will put a message in here -->
-            </label>
-        </label>
-    </form>
+  <form id="draw-form">
 
-    <br><br>
+    <label>Brick Symbol:</label>
+
+    <select id="brick_symbol" onchange="renderPyramid()">
+        <option>#</option>
+        <option>X</option>
+        <option>@</option>
+        <option>$</option>
+        <option>*</option>
+        <option>~</option>
+        <option>+</option>
+    </select>
+
+
+    <label>How high?</label>
+
+    <input type="range" id="slider"  min="0" max="20"
+      oninput="renderPyramid(this.value)"
+      onchange="slider_value.value = slider.value" >
+    <output id="slider_value">0</output>
+
+  </form>
 
     <div id="pyramid"></div>
 
-    <script src="mario.js"></script>
+    <script src="pyramid.js"></script>
+
 </body>
 </html>
