@@ -1,16 +1,17 @@
-var formElem = document.getElementById("draw-form");
+var form = document.getElementById("draw-form");
 
 function renderPyramid(){
-    var h = document.getElementById("slider").value;
-    var a = document.getElementById("brick_symbol").value;
-    formElem.oninput = function(event) {
+    var height = document.getElementById("slider").value;
+    var symbol = document.getElementById("brick_symbol").value;
+
+    form.oninput = function(event) {
       event.preventDefault();
     }
-    drawPyramid(h,a);
+    drawPyramid(height,symbol);
 }
 
 
-function drawPyramid(height,char) {
+function drawPyramid(height,symbol) {
     //clear old content
     document.getElementById("pyramid").innerHTML = "";
 
@@ -26,7 +27,7 @@ function drawPyramid(height,char) {
             rowStr += spaceChar;
         }
         for (var j = 0; j < numBricks; j++) {
-            rowStr += char;
+            rowStr += symbol;
         }
 
         //make a <p> element for this row, and insert it into the #pyramid container
