@@ -10,7 +10,6 @@ function renderPyramid(){
     drawPyramid(height,symbol);
 }
 
-
 function drawPyramid(height,symbol) {
     //clear old content
     document.getElementById("pyramid").innerHTML = "";

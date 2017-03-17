@@ -3,44 +3,97 @@
 
 <head>
     <style>
+
+        html {
+          background-color:#026C7C;
+        }
+
         #pyramid {
             line-height: 0;
             font-size: 30px;
+            color: #BFAB25;
         }
+
+        .box {
+          border-style: outset;
+          margin-left: 100px;
+          margin-right: 100px;
+          background-color: #ECEBE4;
+        }
+
+        .form {
+          border-style: groove;
+          height: 50px;
+          padding-top: 20px;
+          background-color: #CC998D;
+
+        }
+        #title_banner {
+          border-style: solid;
+          background-color:#CC998D;
+          margin-left:50px;
+          margin-right: 50px;
+          margin-bottom: 20px;
+          padding: 10px;
+        }
+
+        h1 {
+          color: #026C7C;
+          font-size: 40px;
+        }
+
+        label {
+          color: #026C7C;
+          font-size: 24px;
+
+
+
+        }
+
         body {
-            font-family: "Courier New", monospace;
+            font-family: monospace;
             text-align: center;
         }
+        #brick_symbol {
+          font-size: 24px;
+          background-color: #ECEBE4;
+        }
+
+
         #slider_value {
             display: inline;
+            font-size: 24px;
+            font-weight: bold;
         }
-input[type=range] {
-    /*removes default webkit styles*/
-    -webkit-appearance: none;
-}
 
-input[type=range]::-webkit-slider-runnable-track {
-    width: 300px;
-    height: 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
-}
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: goldenrod;
-    margin-top: -4px;
-}
-input[type=range]:focus {
-    outline: none;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
-}
+        input[type=range] {
+            /*removes default webkit styles*/
+            -webkit-appearance: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 300px;
+            height: 5px;
+            background: #ddd;
+            border: none;
+
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border-style: outset;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #BFAB25;
+            margin-top: -4px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #ddd;
+            outline-style: hidden;
+        }
     </style>
 </head>
 
@@ -51,32 +104,37 @@ input[type=range]:focus::-webkit-slider-runnable-track {
       <br>
   </div>
 
+  <div class="box">
 
-  <form id="draw-form">
+    <div class="form">
+        <form id="draw-form">
 
-    <label>Brick Symbol:</label>
+        <label>Brick Symbol:</label>
 
-    <select id="brick_symbol" onchange="renderPyramid()">
-        <option>#</option>
-        <option>X</option>
-        <option>@</option>
-        <option>$</option>
-        <option>*</option>
-        <option>~</option>
-        <option>+</option>
-    </select>
+        <select id="brick_symbol" onchange="renderPyramid()">
+            <option>#</option>
+            <option>X</option>
+            <option>@</option>
+            <option>$</option>
+            <option>*</option>
+            <option>~</option>
+            <option>+</option>
+        </select>
 
 
-    <label>How high?</label>
+        <label>How high?</label>
 
-    <input type="range" id="slider"  min="0" max="20"
-      oninput="renderPyramid(this.value)"
-      onchange="slider_value.value = slider.value" >
-    <output id="slider_value">0</output>
+        <input type="range" id="slider"  min="0" max="20"
+          oninput="renderPyramid(this.value)"
+          onchange="slider_value.value = slider.value" >
+        <output id="slider_value">0</output>
 
-  </form>
+      </form>
+    </div>
 
-    <div id="pyramid"></div>
+      <div id="pyramid"></div>
+
+  </div>
 
     <script src="pyramid.js"></script>
 
